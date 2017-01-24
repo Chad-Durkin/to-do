@@ -55,7 +55,9 @@ var deleteThis = function(itemDelete, itemArray) {
   return itemArray;
 }
 
+var clearDisplayList = function() {
 
+}
 
 $(document).ready(function() {
   $("form#new-to-do-list").submit(function(event) {
@@ -81,7 +83,8 @@ $(document).ready(function() {
       event.preventDefault();
       var itemToDelete = $("input#list-item-to-delete").val();
       var cleanArray = deleteThis(itemToDelete, deleteFromArray.theToDoList);
-        $("input#list-item-to-delete").val("");
+      $("#displayed-list").empty();
+      $("input#list-item-to-delete").val("");
 
       clickSort(cleanArray);
       })
