@@ -18,13 +18,17 @@
               <label for="new-list-name">Name your list</label>
               <input type="text" id="new-list-name">
             </div>
-            <div class="form-group">
-              <label for="new-to-do">Add a to do</label>
-              <input type="text" id="new-to-do">
+            <div class="to-do-forms">
+              <div class="form-group-to-do">
+                <label for="new-to-do">Add a to do</label>
+                <input type="text" id="new-to-do0">
+              </div>
             </div>
 
-            <button type="submit" name="submit-button" class="btn">Finish</button>
-            <button type="submit" name="add-one-button" class="btn">Add a to do</button>
+            <button type="submit" id="submit-button" class="btn">Finish</button>
+          </form>
+          <form id="add-one-to-do">
+            <button type="submit" id="add-one-button" class="btn">Add a to do</button>
           </form>
 
           <h2>To do lists:</h2>
@@ -35,6 +39,18 @@
         <div class="col-md-6">
           <div id="show-to-do-list">
             <h2></h2>
+            <div class="hideList">
+            <ul id="displayed-list">
+
+            </ul>
+          </div>
+          <form id="delete-item">
+            <div class="form-group">
+              <label for="delete-list-item">Delete</label>
+              <input type="text" id="list-item-to-delete">
+            </div>
+          </form>
+          <button type="submit" id="delete-button" class="btn">Delete list item</button>
           </div>
         </div>
       </div>
