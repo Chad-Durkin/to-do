@@ -82,6 +82,16 @@ $(document).ready(function() {
       console.log(inputtedListName);
       deleteFromArray = inputtedListName;
     })
+    //delete function
+
+    $("form#delete-item").submit(function(event) {
+    event.preventDefault();
+    var itemToDelete = $("input#list-item-to-delete").val();
+    // console.log(itemToDelete);
+    console.log(deleteFromArray.theToDoList[0]);
+    var cleanArray = deleteThis(itemToDelete, deleteFromArray.theToDoList);
+    })
+    
     clearForms();
   })
 
@@ -92,12 +102,4 @@ $(document).ready(function() {
   $(".to-do-forms").append(newestToDo);
   })
 
-  $("form#delete-item").submit(function(event) {
-  event.preventDefault();
-  var itemToDelete = $("input#list-item-to-delete").val();
-  // console.log(itemToDelete);
-  console.log(deleteFromArray.theToDoList[0]);
-  var cleanArray = deleteThis(itemToDelete, deleteFromArray.theToDoList);
-
-  })
 });
