@@ -1,3 +1,22 @@
+body {
+  background-color: green;
+}
+
 #show-to-do-list {
   display: none;
+}
+
+.form-group-to-do {
+  margin-top: 20px;
+}
+
+.form-group-to-do clone{
+  padding: 20px;
+}
+#submit-button {
+  margin: 10px;
+}
+
+#add-one-button {
+  margin-left: 10px;
 }
