@@ -19,12 +19,9 @@ var grabToDo = function() {
   counterClone = 0;
   for(var index = 0; index < counter; index++)
   {
-    console.log(counter + " counter");
-    console.log(counterClone);
     holdArray[index] = $("input#new-to-do" + counterClone + "").val();
     counterClone++;
   }
-  console.log(holdArray);
   return holdArray;
 }
 
@@ -42,9 +39,7 @@ var clickSort = function(theToDoList) {
 
   for(var index = 0; index < theToDoList.length; index++)
   {
-    // console.log(index);
     $("ul#displayed-list").append("<li><span class='displayList'>" + theToDoList[index] + "</span></li>");
-    // console.log(theToDoList[index]);
   }
 }
 
@@ -75,23 +70,24 @@ $(document).ready(function() {
 
     //functionality that hides/shows the todo list that you click on
     $(".theToDo").last().click(function() {
-      // $("#displayed-list").empty();
+      $("#displayed-list").empty();
       $("#show-to-do-list").show();
       $("#show-to-do-list h2").text(inputtedListName.theListName);
       clickSort(inputtedListName.theToDoList);
       console.log(inputtedListName);
       deleteFromArray = inputtedListName;
-    })
     //delete function
+      $("form#delete-item").submit(function(event) {
+      event.preventDefault();
+      var itemToDelete = $("input#list-item-to-delete").val();
+      var cleanArray = deleteThis(itemToDelete, deleteFromArray.theToDoList);
+        $("input#list-item-to-delete").val("");
 
-    $("form#delete-item").submit(function(event) {
-    event.preventDefault();
-    var itemToDelete = $("input#list-item-to-delete").val();
-    // console.log(itemToDelete);
-    console.log(deleteFromArray.theToDoList[0]);
-    var cleanArray = deleteThis(itemToDelete, deleteFromArray.theToDoList);
+      clickSort(cleanArray);
+      })
+
     })
-    
+
     clearForms();
   })
 
